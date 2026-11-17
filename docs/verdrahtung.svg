@@ -1,0 +1,169 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1120 760" font-family="Segoe UI, Arial, sans-serif" font-size="13">
+  <rect width="1120" height="760" fill="#ffffff"/>
+  <defs>
+    <marker id="arr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto">
+      <path d="M0,0 L10,5 L0,10 z" fill="#555"/>
+    </marker>
+  </defs>
+
+  <text x="30" y="38" font-size="22" font-weight="bold" fill="#222">Windstation Kollund – Prototyp-Verdrahtung</text>
+  <text x="30" y="60" fill="#666">Heltec WiFi LoRa 32 V3 (HTIT-WB32LAF) + analoger Windsensor vom Dachboden · Steckbrett/Lochraster · Strom vorerst über USB-C</text>
+
+  <!-- ===== Sensor ===== -->
+  <rect x="30" y="90" width="250" height="250" rx="10" fill="#f4f7fb" stroke="#8aa" />
+  <text x="45" y="112" font-weight="bold">Sensor (Dachboden-Station)</text>
+  <!-- Anemometer-Symbol -->
+  <g transform="translate(95,170)" stroke="#333" stroke-width="2" fill="none">
+    <line x1="0" y1="0" x2="34" y2="-14"/><line x1="0" y1="0" x2="-34" y2="-14"/><line x1="0" y1="0" x2="0" y2="30"/>
+    <path d="M34,-14 a9,9 0 1,1 0.1,0" fill="#ddd"/><path d="M-34,-14 a9,9 0 1,1 0.1,0" fill="#ddd"/>
+    <circle cx="0" cy="0" r="4" fill="#333"/>
+  </g>
+  <text x="150" y="160">Anemometer</text>
+  <text x="150" y="176" fill="#666" font-size="12">Reed-Kontakt</text>
+  <text x="150" y="191" fill="#666" font-size="12">schließt je Umdrehung</text>
+  <!-- Windfahne-Symbol -->
+  <g transform="translate(95,265)" stroke="#333" stroke-width="2">
+    <line x1="-40" y1="0" x2="30" y2="0"/>
+    <path d="M30,-8 L44,0 L30,8 z" fill="#333"/>
+    <path d="M-40,0 L-52,-14 L-30,0 L-52,14 z" fill="#ddd"/>
+    <line x1="0" y1="0" x2="0" y2="35"/>
+  </g>
+  <text x="150" y="258">Windfahne</text>
+  <text x="150" y="274" fill="#666" font-size="12">Widerstandsnetz</text>
+  <text x="150" y="289" fill="#666" font-size="12">ca. 0,7 – 120 kΩ</text>
+  <text x="45" y="327" fill="#666" font-size="12">4-adriges Kabel, vermutlich RJ11</text>
+
+  <!-- RJ11 / Klemme -->
+  <rect x="290" y="210" width="60" height="180" rx="6" fill="#eee" stroke="#555"/>
+  <text x="298" y="228" font-size="11" font-weight="bold">RJ11-</text>
+  <text x="298" y="241" font-size="11" font-weight="bold">Buchse</text>
+  <text x="298" y="254" font-size="11">o. Klemme</text>
+  <line x1="280" y1="300" x2="290" y2="300" stroke="#555" stroke-width="5"/>
+  <text x="300" y="268" font-size="12" fill="#c60">A1</text>
+  <text x="300" y="300" font-size="12" fill="#c60">A2</text>
+  <text x="300" y="355" font-size="12" fill="#1565c0">B1</text>
+  <text x="300" y="380" font-size="12" fill="#1565c0">B2</text>
+
+  <!-- ===== Leitungen ===== -->
+  <!-- 3V3-Schiene -->
+  <line x1="470" y1="140" x2="880" y2="140" stroke="#d32f2f" stroke-width="3"/>
+  <text x="474" y="132" fill="#d32f2f" font-weight="bold">3V3</text>
+  <!-- GND-Schiene -->
+  <line x1="350" y1="470" x2="880" y2="470" stroke="#222" stroke-width="3"/>
+  <text x="474" y="490" font-weight="bold">GND</text>
+
+  <!-- Anemometer-Signal GPIO6 -->
+  <line x1="350" y1="264" x2="880" y2="264" stroke="#ef6c00" stroke-width="3"/>
+  <text x="740" y="256" fill="#ef6c00" font-weight="bold">Anemometer → GPIO6</text>
+  <!-- A2 an GND -->
+  <polyline points="350,296 380,296 380,470" fill="none" stroke="#222" stroke-width="3"/>
+
+  <!-- Windfahne-Signal GPIO7 -->
+  <line x1="350" y1="351" x2="880" y2="351" stroke="#1565c0" stroke-width="3"/>
+  <text x="740" y="343" fill="#1565c0" font-weight="bold">Windfahne → GPIO7</text>
+  <!-- B2 an GND -->
+  <polyline points="350,376 410,376 410,470" fill="none" stroke="#222" stroke-width="3"/>
+
+  <!-- R1 10k: 3V3 -> GPIO6 -->
+  <line x1="510" y1="140" x2="510" y2="175" stroke="#d32f2f" stroke-width="2"/>
+  <rect x="500" y="175" width="20" height="55" fill="#fff3e0" stroke="#333" stroke-width="2"/>
+  <line x1="510" y1="230" x2="510" y2="264" stroke="#ef6c00" stroke-width="2"/>
+  <text x="526" y="200" font-weight="bold">R1</text><text x="526" y="216">10 kΩ</text>
+  <circle cx="510" cy="140" r="4" fill="#d32f2f"/><circle cx="510" cy="264" r="4" fill="#ef6c00"/>
+
+  <!-- C1 100nF: GPIO6 -> GND -->
+  <line x1="580" y1="264" x2="580" y2="350" stroke="#ef6c00" stroke-width="2"/>
+  <line x1="580" y1="358" x2="580" y2="470" stroke="#222" stroke-width="2"/>
+  <line x1="566" y1="392" x2="594" y2="392" stroke="#333" stroke-width="3"/>
+  <line x1="566" y1="400" x2="594" y2="400" stroke="#333" stroke-width="3"/>
+  <!-- Kabel-Kreuzung (Brücke) über GPIO7-Leitung -->
+  <path d="M580,343 a8,8 0 0,1 0,16" fill="none" stroke="#ef6c00" stroke-width="2"/>
+  <line x1="580" y1="359" x2="580" y2="392" stroke="#ef6c00" stroke-width="2"/>
+  <text x="600" y="395" font-weight="bold">C1</text><text x="600" y="411">100 nF</text>
+  <text x="600" y="426" fill="#666" font-size="11">entprellt</text>
+  <circle cx="580" cy="264" r="4" fill="#ef6c00"/><circle cx="580" cy="470" r="4" fill="#222"/>
+
+  <!-- R2 10k: 3V3 -> GPIO7 (Brücke über GPIO6) -->
+  <line x1="680" y1="140" x2="680" y2="175" stroke="#d32f2f" stroke-width="2"/>
+  <rect x="670" y="175" width="20" height="55" fill="#e3f2fd" stroke="#333" stroke-width="2"/>
+  <line x1="680" y1="230" x2="680" y2="256" stroke="#1565c0" stroke-width="2"/>
+  <path d="M680,256 a8,8 0 0,1 0,16" fill="none" stroke="#1565c0" stroke-width="2"/>
+  <line x1="680" y1="272" x2="680" y2="351" stroke="#1565c0" stroke-width="2"/>
+  <text x="696" y="200" font-weight="bold">R2</text><text x="696" y="216">10 kΩ</text>
+  <text x="696" y="231" fill="#666" font-size="11">Spannungsteiler</text>
+  <circle cx="680" cy="140" r="4" fill="#d32f2f"/><circle cx="680" cy="351" r="4" fill="#1565c0"/>
+
+  <!-- C2 100nF optional: GPIO7 -> GND -->
+  <line x1="760" y1="351" x2="760" y2="392" stroke="#1565c0" stroke-width="2"/>
+  <line x1="746" y1="392" x2="774" y2="392" stroke="#333" stroke-width="3"/>
+  <line x1="746" y1="400" x2="774" y2="400" stroke="#333" stroke-width="3"/>
+  <line x1="760" y1="400" x2="760" y2="470" stroke="#222" stroke-width="2"/>
+  <text x="780" y="395" font-weight="bold">C2</text><text x="780" y="411">100 nF</text>
+  <text x="780" y="426" fill="#666" font-size="11">optional</text>
+  <circle cx="760" cy="351" r="4" fill="#1565c0"/><circle cx="760" cy="470" r="4" fill="#222"/>
+
+  <!-- ===== Heltec V3 ===== -->
+  <rect x="880" y="110" width="200" height="400" rx="12" fill="#1b5e20" stroke="#0d3b10" stroke-width="2"/>
+  <text x="880" y="102" fill="#1b5e20" font-weight="bold">Heltec WiFi LoRa 32 V3</text>
+  <text x="900" y="126" fill="#c8e6c9" font-size="11">ESP32-S3 + SX1262</text>
+  <!-- Pins -->
+  <g font-size="12" fill="#fff">
+    <circle cx="890" cy="140" r="5" fill="#ffd54f"/><text x="900" y="145">3V3</text>
+    <circle cx="890" cy="264" r="5" fill="#ffd54f"/><text x="900" y="268">GPIO 6</text>
+    <circle cx="890" cy="351" r="5" fill="#ffd54f"/><text x="900" y="355">GPIO 7</text>
+    <circle cx="890" cy="470" r="5" fill="#ffd54f"/><text x="900" y="474">GND</text>
+  </g>
+  <text x="900" y="290" fill="#c8e6c9" font-size="11">alle vier an Stiftleiste J3</text>
+  <text x="900" y="304" fill="#c8e6c9" font-size="11">(Beschriftung auf der</text>
+  <text x="900" y="318" fill="#c8e6c9" font-size="11">Platine prüfen)</text>
+  <!-- OLED -->
+  <rect x="960" y="180" width="100" height="56" fill="#0b1a2e" stroke="#9ab"/>
+  <text x="968" y="200" fill="#7fd3ff" font-size="10">Wind 3.4 Boe 5.1</text>
+  <text x="968" y="214" fill="#7fd3ff" font-size="10">Ri 225 SW 2010mV</text>
+  <text x="968" y="228" fill="#7fd3ff" font-size="10">Up#3 DR5 5 Min</text>
+  <!-- PRG/RST -->
+  <rect x="960" y="380" width="24" height="16" rx="3" fill="#ccc"/><text x="958" y="412" fill="#fff" font-size="10">PRG</text>
+  <rect x="1020" y="380" width="24" height="16" rx="3" fill="#ccc"/><text x="1018" y="412" fill="#fff" font-size="10">RST</text>
+  <text x="900" y="432" fill="#c8e6c9" font-size="11">PRG = sofort senden</text>
+  <!-- USB-C -->
+  <rect x="955" y="500" width="50" height="16" rx="5" fill="#9e9e9e" stroke="#555"/>
+  <text x="925" y="540" fill="#333" font-size="12">USB-C → PC (Strom + Seriell)</text>
+  <!-- Akku-Buchse -->
+  <rect x="1040" y="490" width="26" height="14" fill="#fff" stroke="#555"/>
+  <text x="1030" y="482" fill="#fff" font-size="10">BAT</text>
+  <!-- Antenne IPEX -->
+  <circle cx="1060" cy="160" r="6" fill="#ffd54f" stroke="#333"/>
+  <path d="M1060,160 C1090,150 1095,120 1095,95" fill="none" stroke="#555" stroke-width="2"/>
+  <rect x="1088" y="40" width="14" height="58" rx="5" fill="#333"/>
+  <text x="1075" y="40" text-anchor="end" fill="#b71c1c" font-weight="bold" font-size="12">868-MHz-Antenne (IPEX/u.FL)</text>
+  <text x="1075" y="56" text-anchor="end" fill="#b71c1c" font-size="12">IMMER vor dem Einschalten anstecken!</text>
+
+  <!-- ===== Messen / Hinweise ===== -->
+  <rect x="30" y="360" width="250" height="185" rx="10" fill="#fffde7" stroke="#e0c060"/>
+  <text x="45" y="382" font-weight="bold">Vorher mit Multimeter (Ω)</text>
+  <text x="45" y="402" font-size="12">Paar A: springt 0 Ω ↔ offen,</text>
+  <text x="45" y="417" font-size="12">wenn man die Schalen dreht</text>
+  <text x="45" y="432" font-size="12">→ Anemometer (A1/A2 egal)</text>
+  <text x="45" y="455" font-size="12">Paar B: Widerstand ändert sich,</text>
+  <text x="45" y="470" font-size="12">wenn man die Fahne dreht</text>
+  <text x="45" y="485" font-size="12">→ Windfahne (B1/B2 egal)</text>
+  <text x="45" y="508" font-size="12">Werte je Stellung notieren:</text>
+  <text x="45" y="523" font-size="12">N, NO, O, … (für die Tabelle</text>
+  <text x="45" y="538" font-size="12">in wind.cpp)</text>
+
+  <!-- ===== Später: Energie ===== -->
+  <rect x="30" y="575" width="1060" height="165" rx="10" fill="none" stroke="#888" stroke-dasharray="8,6"/>
+  <text x="45" y="598" font-weight="bold" fill="#555">Später am Mast (nicht für den Prototyp)</text>
+  <rect x="60" y="625" width="170" height="70" rx="6" fill="#e3f2fd" stroke="#555"/>
+  <text x="72" y="652" font-weight="bold">Solarpanel 6 V</text><text x="72" y="670" font-size="12">3–5 W, Süd, ~60°</text>
+  <line x1="230" y1="660" x2="300" y2="660" stroke="#555" stroke-width="2" marker-end="url(#arr)"/>
+  <rect x="300" y="625" width="170" height="70" rx="6" fill="#ede7f6" stroke="#555"/>
+  <text x="312" y="652" font-weight="bold">CN3791 MPPT</text><text x="312" y="670" font-size="12">6-V-Variante</text>
+  <line x1="470" y1="660" x2="540" y2="660" stroke="#555" stroke-width="2" marker-end="url(#arr)"/>
+  <rect x="540" y="625" width="200" height="70" rx="6" fill="#fce4ec" stroke="#555"/>
+  <text x="552" y="652" font-weight="bold">2× 18650 parallel</text><text x="552" y="670" font-size="12">35E / MJ1 · ~7000 mAh</text>
+  <line x1="740" y1="660" x2="810" y2="660" stroke="#555" stroke-width="2" marker-end="url(#arr)"/>
+  <rect x="810" y="625" width="250" height="70" rx="6" fill="#e8f5e9" stroke="#555"/>
+  <text x="822" y="652" font-weight="bold">Heltec BAT-Buchse</text><text x="822" y="670" font-size="12">JST SH1.25 2-pol., Polung prüfen!</text>
+  <text x="60" y="720" font-size="12" fill="#b71c1c">Li-Ion nicht unter 0 °C laden (Temperaturabschaltung oder später LiFePO4). Für Deep-Sleep die Pull-ups später schaltbar machen (Vext/GPIO), sonst fließen bis 0,3 mA Dauerstrom.</text>
+</svg>
