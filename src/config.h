@@ -38,6 +38,7 @@
 #define VANE_PULLUP_OHM    10000.0f
 #define VANE_VCC_MV        3300.0f
 #define VANE_MAX_ERR_MV    200       // weiter weg vom Tabellenwert = ungültig
+#define VANE_MIN_MV        100       // darunter: Pull-up fehlt/Kurzschluss (kleinster echter Wert ~210 mV)
 // Nordabgleich: Grad, die auf die Rohrichtung addiert werden (Montage am Mast)
 #define VANE_OFFSET_DEG    0
 

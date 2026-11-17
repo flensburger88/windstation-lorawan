@@ -213,7 +213,7 @@ static void drawDisplay() {
 void setup() {
   Serial.begin(115200);
   delay(300);
-  Serial.println(F("\n=== Windstation Kollund – Prototyp ==="));
+  Serial.println(F("\n=== Windstation Kollund - Prototyp ==="));
 
   pinMode(PIN_LED, OUTPUT);
   pinMode(PIN_PRG, INPUT_PULLUP);

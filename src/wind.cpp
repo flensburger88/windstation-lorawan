@@ -45,7 +45,8 @@ static void decodeVane(uint16_t mv, LiveValues& lv) {
   }
   lv.vaneIndex = best;
   lv.vaneErrMv = (int16_t)lroundf(bestErr);
-  if (bestErr > VANE_MAX_ERR_MV) { lv.dirDeg = -1; return; }
+  // < VANE_MIN_MV: Pull-up fehlt oder Kurzschluss; zu weit weg: unbekannte Stellung/offen
+  if (mv < VANE_MIN_MV || bestErr > VANE_MAX_ERR_MV) { lv.dirDeg = -1; return; }
   int deg = (int)lroundf(VANE_TABLE[best].deg) + VANE_OFFSET_DEG;
   lv.dirDeg = ((deg % 360) + 360) % 360;
 }
